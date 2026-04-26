@@ -10,4 +10,5 @@ void main() {
   print(
     "A multa por atraso é: $diasDeAtraso * $multaPorAtraso = ${diasDeAtraso * multaPorAtraso}",    
   );
+  
 }
