@@ -8,6 +8,6 @@ void main() {
   int diasDeAtraso = 3;
   double multaPorAtraso = diasDeAtraso >= 3 ? 1.5 : 1.3;
   print(
-    "A multa por atraso é: $diasDeAtraso * $multaPorAtraso = ${diasDeAtraso * multaPorAtraso}",
+    "A multa por atraso é: $diasDeAtraso * $multaPorAtraso = ${diasDeAtraso * multaPorAtraso}",    
   );
 }
