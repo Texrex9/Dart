@@ -5,4 +5,5 @@ void main() {
   print(a - b); // Imprime a diferença de a e b
   print(a * b); // Imprime o produto de a e b
   print(a / b); // Imprime o quociente de a e b
+  print(a % b); // Imprime o resto da divisão de a por b
 }
