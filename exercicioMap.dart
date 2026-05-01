@@ -1,10 +1,6 @@
 void main() {
   // Map com usuários e senhas
-  Map<String, String> usuarios = {
-    "admin": "123456",
-    "user": "senha123",
-    "joao": "abc789",
-  };
+  Map<String, String> usuarios = {"admin": "123456", "user": "senha123"};
 
   // Variáveis com login e senha digitados
   String loginDigitado = "admin";
