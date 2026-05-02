@@ -16,4 +16,18 @@ void main() {
   } else {
     print("Usuário não encontrado");
   }
-}
+
+  Map<String, int> carrinho = {};
+  carrinho.addAll({"Detergente": 10, "Carne": 15, "Refrigerante": 5});
+  print(carrinho);
+  carrinho["Detergente"] =
+      carrinho["Detergente"]! + 2; // Atualiza a quantidade de detergente
+  print(carrinho);
+  carrinho.remove("Carne"); // Remove o item "Carne" do carrinho
+  print(carrinho.length);
+  print(carrinho);
+  carrinho.addAll({'Carne': 20, 'Arroz': 10});
+  print(carrinho);
+  print(carrinho.length);
+  
+  }
