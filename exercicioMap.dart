@@ -1,20 +1,12 @@
 void main() {
   // Map com usuários e senhas
-  Map<String, String> usuarios = {"admin": "123456", "user": "senha123"};
-
-  // Variáveis com login e senha digitados
-  String loginDigitado = "admin";
-  String senhaDigitada = "123456";
-
-  // Verificação de autenticação
-  if (usuarios.containsKey(loginDigitado)) {
-    if (usuarios[loginDigitado] == senhaDigitada) {
-      print("Acesso concedido");
-    } else {
-      print("Senha incorreta");
-    }
+  Map<String, String> usuarios = {"user": "texrex", "pass": "senha123"};
+  String usuario = usuarios["user"]!;
+  String senha = usuarios["pass"]!;
+  if (usuario == "texrex" && senha == "senha123") {
+    print("Login bem-sucedido!");
   } else {
-    print("Usuário não encontrado");
+    print("Credenciais inválidas.");
   }
 
   Map<String, int> carrinho = {};
@@ -29,5 +21,4 @@ void main() {
   carrinho.addAll({'Carne': 20, 'Arroz': 10});
   print(carrinho);
   print(carrinho.length);
-  
-  }
+}
