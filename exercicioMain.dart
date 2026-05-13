@@ -86,70 +86,27 @@ void main() {
   //*precisar mostrar para o usuário algumas informações,
   //*sendo elas o ID do produto, o nome e o lucro que esta dando
 
-  final listaFormatada = produtos.map((e) {
-    double valorCompra = double.parse(e["valor_compra"]);
-    String valorVendaStringFormatada = e["valor_venda"].toString().replaceAll(
-      RegExp(r','),
-      '.',
-    );
-    double valorVenda = double.parse(valorVendaStringFormatada);
-    double lucro = valorVenda - valorCompra;
-    return {
-      "id": e["id"],
-      "produto": e["produto"],
-      "valor_venda": valorVenda,
-      "valor_compra": valorCompra,
-      "lucro": lucro,
-    };
-  }).toList();
-  print(listaFormatada);
+  //? Imprimir na tela conforme modelo abaixo:
 
-  print("\n\n----LISTA DOS PRODUTOS----\n");
-  listaFormatada.forEach((produto) {
-    String lucroFormatado = produto["lucro"].toStringAsFixed(2);
-    print(
-      "ID: ${produto["id"]}| PRODUTO: ${produto["produto"]} | LUCRO DA VENDA: R\$$lucroFormatado",
-    );
-  });
+  //? print("ID: 1| PRODUTO: SABÃO | LUCRO POR VENDA: R$12,00");
+  //? print("ID: 1| PRODUTO: oleo | LUCRO POR VENDA: -R$7,00");
 
-  print("\n\n----MÉDIAS----\n");
+  print("\n\nMÉDIAS\n");
 
   //*Contexto: Agora você precisar gerar alguns relatórios sintéticos para o usuário:
 
   //? Imprimir a média do valor de venda: Média valor venda: R$21,00
+
   //? Imprimir a média do valor de compra: Média valor compra: R$18,00
+
   //? Imprimir a média do lucro: Média valor compra: R$3,50
-  double mediaVenda =
-      listaFormatada.map((e) => e["valor_venda"]).reduce((a, b) => a + b) /
-      listaFormatada.length;
-  double mediaCompra =
-      listaFormatada.map((e) => e["valor_compra"]).reduce((a, b) => a + b) /
-      listaFormatada.length;
-  double mediaLucro =
-      listaFormatada.map((e) => e["lucro"]).reduce((a, b) => a + b) /
-      listaFormatada.length;
 
-  print("Média valor venda: R\$${mediaVenda.toStringAsFixed(2)}");
-  print("Média valor compra: R\$${mediaCompra.toStringAsFixed(2)}");
-  print("Média lucro: R\$${mediaLucro.toStringAsFixed(2)}");
+  //? imprimir "SIM" ou "NÃO"
 
-  // Próxima etapa
-  print("\n\nMAIOR PARTE DOS PRODUTOS DA LUCRO?:\n");
+  //? imprimir "SIM" ou "NÃO"
 
-  int produtosComLucro = listaFormatada.where((e) => e["lucro"] > 0).length;
-  print(produtosComLucro > listaFormatada.length / 2 ? "SIM" : "NÃO");
+  //*Contexto: Agora você precisar gerar um relatório analitico mostrando
+  //*os produtos que dão prejuizo:
 
-  print("\n\nMAIOR PARTE DOS PRODUTOS DA LUCRO ACIMA DE R\$2,00?:\n");
-  int produtosLucroAcima2 = listaFormatada
-      .where((e) => e["lucro"] > 2.00)
-      .length;
-  print(produtosLucroAcima2 > listaFormatada.length / 2 ? "SIM" : "NÃO");
-
-  print("\n\nPRODUTOS QUE DÃO PREJUÍZO:\n");
-  listaFormatada.where((e) => e["lucro"] < 0).forEach((produto) {
-    String prejuizoFormatado = produto["lucro"].toStringAsFixed(2);
-    print(
-      "ID: ${produto["id"]} | PRODUTO: ${produto["produto"]} | PREJUÍZO: -R\$${prejuizoFormatado.substring(1)}",
-    );
-  });
+  //? imprimir produtos que dão prejuizo, para cada linha imprimir conforme exemplo: ID: 1 | PRODUTO: SABÃO | PREJUIZO: -R$3,00
 }
