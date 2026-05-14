@@ -110,3 +110,9 @@ void main() {
 
   //? imprimir produtos que dão prejuizo, para cada linha imprimir conforme exemplo: ID: 1 | PRODUTO: SABÃO | PREJUIZO: -R$3,00
 }
+
+extension FormatadoresDeDinheiro on double {
+  String transformarDinheiroBr() => this.isNegative
+      ? "R\$${abs().toStringAsFixed(2).replaceAll('.', ',')}"
+      : "R\$${abs().toStringAsFixed(2).replaceAll('.', ',')}";
+}
