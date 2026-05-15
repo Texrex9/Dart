@@ -86,6 +86,23 @@ void main() {
   //*precisar mostrar para o usuário algumas informações,
   //*sendo elas o ID do produto, o nome e o lucro que esta dando
 
+  final listaFormatada = produtos.map((e) {
+    String valorVendaString = e["valor_venda"].toString().replaceAll(
+      RegExp(r','),
+      ".",
+    );
+    double valorVenda = double.parse(valorVendaString);
+    double valorCompra = double.parse(e["valor_compra"]);
+    double lucro = valorVenda - valorCompra;
+    return {
+      "id": e['id'],
+      "produto": e['produto'],
+      "valor_venda": valorVenda,
+      "valor_compra": valorCompra,
+    };
+  }).toList();
+  print(listaFormatada);
+
   //? Imprimir na tela conforme modelo abaixo:
 
   //? print("ID: 1| PRODUTO: SABÃO | LUCRO POR VENDA: R$12,00");
@@ -112,7 +129,7 @@ void main() {
 }
 
 extension FormatadoresDeDinheiro on double {
-  String transformarDinheiroBr() => this.isNegative
-      ? "R\$${abs().toStringAsFixed(2).replaceAll('.', ',')}"
-      : "R\$${abs().toStringAsFixed(2).replaceAll('.', ',')}";
+  String transformarEmDinheiroBr() => this.isNegative
+      ? "R\$ ${abs().toStringAsFixed(2).replaceAll(".", ",")}"
+      : "R\$ ${abs().toStringAsFixed(2).replaceAll(".", ",")}";
 }

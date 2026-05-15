@@ -1,4 +1,4 @@
-List<Map<String, dynamic>> alunosMapa = [
+List<Map<String, dynamic>> alunos = [
   {"id": 98523488, "nome": "João da Silva", "telefone": null},
   {"id": 98523489, "nome": "Lucas Evangelista", "telefone": '11996541236'},
   {"id": 98523490, "nome": "Maria Teodoro", "telefone": '11944551236'},
@@ -10,25 +10,22 @@ List<Map<String, dynamic>> alunosMapa = [
 // Imprima na tela o nome de cada aluno, requisito imprimir usando um atributo da classe
 
 class Aluno {
-  final int id;
-  final String nome;
-  final String? telefone;
+  int id;
+  String nome;
+  String? telefone;
 
-  Aluno({required this.id, required this.nome, this.telefone});
+  Aluno.salaDeAula(Map aulunosDaSala)
+    : id = aulunosDaSala["id"],
+      nome = aulunosDaSala["nome"],
+      telefone = aulunosDaSala["telefone"];
 
-  factory Aluno.fromMap(Map<String, dynamic> map) {
-    return Aluno(
-      id: map['id'] as int,
-      nome: map['nome'] as String,
-      telefone: map['telefone'] as String?,
-    );
-  }
+  Aluno(this.id, this.nome, this.telefone);
 }
 
 void main() {
-  final List<Aluno> alunos = alunosMapa.map(Aluno.fromMap).toList();
+  final alunosLista = alunos.map((e) {
+    return Aluno.salaDeAula(e);
+  }).toList();
   print("----ALUNOS----");
-  for (final aluno in alunos) {
-    print("Nome: ${aluno.nome}");
-  }
+  alunosLista.forEach((e) => print("Nome: ${e.nome}"));
 }
